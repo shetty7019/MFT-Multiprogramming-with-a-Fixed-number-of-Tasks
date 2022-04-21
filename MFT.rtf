@@ -1,0 +1,62 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2580
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red88\green138\blue67;\red255\green255\blue255;\red202\green202\blue202;
+\red71\green137\blue205;\red194\green126\blue101;\red203\green203\blue202;}
+{\*\expandedcolortbl;;\cssrgb\c41525\c59950\c33208;\cssrgb\c100000\c100000\c100000\c0;\cssrgb\c83229\c83229\c83125;
+\cssrgb\c33936\c61427\c84130;\cssrgb\c80778\c56830\c46925;\cssrgb\c83320\c83320\c83112;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15140\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 #include<stdio.h>\cf4 \strokec4 \
+\
+int main()\{\
+    \
+    int ms,bs,nob,n,mp[10],ef,\cf5 \strokec5 tif\cf4 \strokec4 =0\cf2 \strokec2 ; //ms-memory size,bs = block size, nob= number of blocks,n=no of process,mp=memory for each process,ef=external fragmentation, tif =total internal fragmentation\cf4 \strokec4 \
+    int i,\cf5 \strokec5 p\cf4 \strokec4 =0\cf2 \strokec2 ;\cf4 \strokec4 \
+    \
+    printf(\cf6 \strokec6 "Memory size is: "\cf4 \strokec4 )\cf2 \strokec2 ;\cf4 \strokec4 \
+    scanf(\cf6 \strokec6 "%d"\cf4 \strokec4 ,&ms)\cf2 \strokec2 ;\cf4 \strokec4 \
+    printf(\cf6 \strokec6 "\\nBlock size is :"\cf4 \strokec4 )\cf2 \strokec2 ;\cf4 \strokec4 \
+    scanf(\cf6 \strokec6 "%d"\cf4 \strokec4 ,&bs)\cf2 \strokec2 ;\cf4 \strokec4 \
+    \cf5 \strokec5 nob\cf4 \strokec4 =ms/bs\cf2 \strokec2 ;\cf4 \strokec4 \
+    \cf5 \strokec5 ef\cf4 \strokec4 =ms-bs*nob\cf2 \strokec2 ;\cf4 \strokec4 \
+    printf(\cf6 \strokec6 "\\nNumber of blocks available are: %d"\cf4 \strokec4 ,nob)\cf2 \strokec2 ;\cf4 \strokec4 \
+    \
+    printf(\cf6 \strokec6 "\\nEnter the number of process:"\cf4 \strokec4 )\cf2 \strokec2 ;\cf4 \strokec4 \
+    scanf(\cf6 \strokec6 "%d"\cf4 \strokec4 ,&n)\cf2 \strokec2 ;\cf4 \strokec4 \
+    \
+    for(\cf5 \strokec5 i\cf4 \strokec4 =0\cf2 \strokec2 ;i<n;i++)\{\cf4 \strokec4 \
+            printf(\cf6 \strokec6 "\\nEnter the memory of process %d: "\cf4 \strokec4 ,i+1)\cf2 \strokec2 ;\cf4 \strokec4 \
+            scanf(\cf6 \strokec6 "%d"\cf4 \strokec4 ,&mp[i])\cf2 \strokec2 ;\cf4 \strokec4 \
+    \}\
+    \
+    printf(\cf6 \strokec6 "\\nProcess\\tMemory Size\\tAllocated\\tInternal fragmentation\\n"\cf4 \strokec4 )\cf2 \strokec2 ;\cf4 \strokec4 \
+    \
+    for(\cf5 \strokec5 i\cf4 \strokec4 =0\cf2 \strokec2 ;i<n && p<nob;i++)\{\cf4 \strokec4 \
+        \
+        printf(\cf6 \strokec6 "%d\\t%d\\t"\cf4 \strokec4 ,i+1,mp[i])\cf2 \strokec2 ;\cf4 \strokec4 \
+        \
+        if(mp[i]>bs)\
+            printf(\cf6 \strokec6 "NO\\t\\t---\\n"\cf4 \strokec4 )\cf2 \strokec2 ;\cf4 \strokec4 \
+            \
+        else\{\
+            printf(\cf6 \strokec6 "YES\\t\\t%d\\n"\cf4 \strokec4 ,bs-mp[i])\cf2 \strokec2 ;\cf4 \strokec4 \
+            \cf5 \strokec5 tif\cf4 \strokec4 =tif+bs-mp[i]\cf2 \strokec2 ;\cf4 \strokec4 \
+            p++\cf2 \strokec2 ;\cf4 \strokec4 \
+        \}\
+    \}\
+    \
+    if(i>n)\
+        printf(\cf6 \strokec6 "MEMORY IS FULL"\cf4 \strokec4 )\cf2 \strokec2 ;\cf4 \strokec4 \
+    \
+    printf(\cf6 \strokec6 "Total internal fragmentation %d"\cf4 \strokec4 ,tif)\cf2 \strokec2 ;\cf4 \strokec4 \
+        printf(\cf6 \strokec6 "Total external fragmentation %d"\cf4 \strokec4 ,ef)\cf2 \strokec2 ;\cf4 \strokec4 \
+\
+    return 0\cf2 \strokec2 ;\cf4 \strokec4 \
+\
+\}\uc0\u65533 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf7 \strokec7 \
+}
